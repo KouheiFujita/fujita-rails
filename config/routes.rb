@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+    get 'dengonban', to: 'dengonban#index'
+    post 'dengonban', to: 'dengonban#index'
+    get 'dengonban/index'
+    post 'dengonban/index'
+
     get 'helo/index'
     get 'helo', to: 'helo#index'
-    
+
     get 'helo/other'
     
     post 'helo', to: 'helo#index'
