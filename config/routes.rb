@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     get 'people/add' #:idよりも前に記述
     post 'people/add', to: 'people#create'
     get 'people/:id', to: 'people#show' #:idは任意の値
-
+    get 'people/edit/:id', to: 'people#edit'
+    patch 'people/edit/:id', to: 'people#update'
+    get 'people/delete/:id', to: 'people#delete'
 
     get 'dengonban', to: 'dengonban#index'
     post 'dengonban', to: 'dengonban#index'
