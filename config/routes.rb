@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+    get 'people/find'
+    post 'people/find'
+
+    
     get 'books/index'
     get 'books', to: 'books#index'
     
@@ -12,7 +18,6 @@ Rails.application.routes.draw do
     
     get 'books/delete/:id', to: 'books#delete'
 
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
     get 'cards/index'
     get 'cards', to: 'cards#index'

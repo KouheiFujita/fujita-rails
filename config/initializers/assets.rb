@@ -18,3 +18,6 @@ Rails.application.config.assets.precompile += %w( cards.js )
 
 Rails.application.config.assets.precompile += %w( books.css )
 Rails.application.config.assets.precompile += %w( books.js )
+
+Rails.application.config.assets.precompile += %w( people.css )
+Rails.application.config.assets.precompile += %w( people.js )
