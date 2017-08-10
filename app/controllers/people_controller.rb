@@ -17,10 +17,13 @@ class PeopleController < ApplicationController
     end
     
     def create
-    	if request.post? then
-    	    Person.create(person_params)
+        @person = Person.new person_params
+    	if @person.save then #バリデーション実行
+    	    redirect_to '/people'
+    	else
+    	    @msg = '入力に問題があります。'
+    	    render 'add' #add.html.erbに@personが紐づいているのでミスの内容が表示される
     	end
-    	redirect_to '/people'
     end
     
     def edit
