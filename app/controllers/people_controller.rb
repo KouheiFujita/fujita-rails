@@ -17,14 +17,22 @@ class PeopleController < ApplicationController
     end
     
     def create
-        @person = Person.new person_params
-    	if @person.save then #バリデーション実行
-    	    redirect_to '/people'
+    	@person = Person.new person_params
+    	if @person.save then
+    		redirect_to '/people'
     	else
-    	    @msg = '入力に問題があります。'
-    	    render 'add' #add.html.erbに@personが紐づいているのでミスの内容が表示される
+    		re = ''
+    		@person.errors.messages.each do |key, vals|
+    			vals.each do |val|
+    				re += '<span style="color:red">' + key.to_s + 
+    				'</span> ' + val + '<br>'
+    			end
+    		end
+    		@msg = re.html_safe
+    		render 'add'
     	end
     end
+
     
     def edit
         @msg = "edit data.[id = " + params[:id] + "]"
