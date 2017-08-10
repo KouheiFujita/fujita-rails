@@ -1,5 +1,33 @@
 Rails.application.routes.draw do
+    get 'books/index'
+    get 'books', to: 'books#index'
+    
+    get 'books/add'
+    post 'books/add'
+    
+    get 'books/:id', to: 'books#show'
+    
+    get 'books/edit/:id', to: 'books#edit'
+    patch 'books/edit/:id', to: 'books#edit'
+    
+    get 'books/delete/:id', to: 'books#delete'
+
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+    get 'cards/index'
+    get 'cards', to: 'cards#index'
+    
+    get 'cards/add'
+    post 'cards/add'
+    
+    get 'cards/:id', to: 'cards#show'
+    
+    get 'cards/edit/:id', to: 'cards#edit'
+    patch 'cards/edit/:id', to: 'cards#edit'
+    
+    get 'cards/delete/:id', to: 'cards#delete'
+
+
     get 'people/index'
     get 'people', to: 'people#index'
     get 'people/add' #:idよりも前に記述
