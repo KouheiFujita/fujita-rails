@@ -21,3 +21,6 @@ Rails.application.config.assets.precompile += %w( books.js )
 
 Rails.application.config.assets.precompile += %w( people.css )
 Rails.application.config.assets.precompile += %w( people.js )
+
+Rails.application.config.assets.precompile += %w( messages.css )
+Rails.application.config.assets.precompile += %w( messages.js )
