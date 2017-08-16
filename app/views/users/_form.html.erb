@@ -30,6 +30,12 @@
     <%= form.label :memo %>
     <%= form.text_area :memo, id: :user_memo %>
   </div>
+  
+  <!-- 部署選択 -->
+  <div class="field">
+    <%= form.label :division_id %>
+    <%= form.collection_select( :division_id, @divisions, :id, :name ) %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

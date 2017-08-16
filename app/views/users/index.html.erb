@@ -9,6 +9,7 @@
       <th>Name</th>
       <th>Kana</th>
       <th>Memo</th>
+      <th>Division_id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= user.name %></td>
         <td><%= user.kana %></td>
         <td><%= user.memo %></td>
+        <td><%= user.division.name %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
