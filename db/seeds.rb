@@ -10,4 +10,7 @@
 # Person.create(name:'Hanako', age:34, mail:'hanako@flower')
 # Person.create(name:'sachiko', age:56, mail:'sachiko@happy')
 
-Blogconfig.create(id:1, title:'my blog', subtitle:'サンプルで作ったブログです。', stylename: 'gray')
+# Blogconfig.create(id:1, title:'my blog', subtitle:'サンプルで作ったブログです。', stylename: 'gray')
+
+
+# Users.create(no:1, name:'山田', kana:'やまだ',)

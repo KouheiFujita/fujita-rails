@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816004157) do
+ActiveRecord::Schema.define(version: 20170816033002) do
 
   create_table "blogconfigs", force: :cascade do |t|
     t.text "title"
@@ -77,6 +77,15 @@ ActiveRecord::Schema.define(version: 20170816004157) do
     t.text "name"
     t.integer "age"
     t.text "mail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer "no"
+    t.text "name"
+    t.text "kana"
+    t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
