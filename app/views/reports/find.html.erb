@@ -1,6 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reports</h1>
+<h1>Report#Find</h1>
+
+<table>
+	<%= form_tag(controller: "reports", action: "find" ) do %>
+	<tr><th>DATE</th>
+		<td>
+		  <%= text_field_tag("date_1", Date.today-3 ) %>
+		  <%= text_field_tag("date_2", Date.today ) %>
+	  </td>
+	</tr>
+	<tr><th>NAME</th>
+		<td>
+		  <%= text_field_tag("name", '' ) %>
+	  </td>
+  </tr>
+	<tr><th></th>
+		<td><%= submit_tag("Click") %></td></tr>
+	</tr>
+	<% end %>
+</table>
 
 <table>
   <thead>
@@ -29,6 +48,3 @@
 <br>
 
 <%= link_to 'New Report', new_report_path %>
-<%= @reports.each do |i|%>
-  <%= report.user.name %>
-<% end %>

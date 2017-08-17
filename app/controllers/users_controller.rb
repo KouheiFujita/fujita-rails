@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    @divisions = Division.all
+    # @divisions = Division.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @divisions = Division.all
+    # @divisions = Division.all
   end
 
   # GET /users/new
