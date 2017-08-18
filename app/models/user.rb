@@ -1,7 +1,8 @@
 class User < ApplicationRecord
     # has_one :division
     belongs_to :division
-    has_one :report
+    has_many :reports
+    has_many :comments
     
     validates :no, uniqueness: true
     validates :no, numericality: true

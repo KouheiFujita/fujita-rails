@@ -11,6 +11,11 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+    @comment = Comment.new
+    # if @comment.present?
+    #   @comment = Comment.all
+    # end
+    @users = User.all
   end
 
   # GET /reports/new
@@ -67,6 +72,7 @@ class ReportsController < ApplicationController
   #一覧検索
   def find
   # 	@reports = Array.new
+    @users = User.all
     @reports = Report.all.order(created_at: :desc).page(params[:page]).per(10)
   	if request.post? then
       @reports = Report.find_date_1(params[:date_1]).find_date_2(params[:date_2]).find_name(params[:name]).order(created_at: :desc).page(params[:page]).per(10)

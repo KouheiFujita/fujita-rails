@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     # @divisions = Division.all
+    # @report = Report.find(params[:id])
+    @report = Report.all
+    @report
   end
 
   # GET /users/new
@@ -29,13 +32,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    
-    # if params[:test] then
-    #   @select = params[:test] + 'ok'
-    # else
-    #   @select = 'ng'
-    # end 
-    
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }

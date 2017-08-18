@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Show Comment</h1>
+
+<p>
+  <strong>Report:</strong>
+  <%= @comment.report_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @comment.user_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @comment.comment %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', reports_find_path %>
