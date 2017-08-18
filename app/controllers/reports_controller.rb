@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+	helper_method :sort_column, :sort_direction
 
   # GET /reports
   # GET /reports.json
@@ -73,7 +74,10 @@ class ReportsController < ApplicationController
   def find
   # 	@reports = Array.new
     @users = User.all
-    @reports = Report.all.order(created_at: :desc).page(params[:page]).per(10)
+    # @reports = Report.all.order(created_at: :desc).page(params[:page]).per(10)
+    # @reports = Report.all.order("entry_date DESC").page(params[:page]).per(10)
+    # @reports = Report.all.order("user_id ASC").page(params[:page]).per(10)
+    @reports = Report.all.order(sort_column + ' ' + sort_direction).page(params[:page]).per(10)
   	if request.post? then
       @reports = Report.find_date_1(params[:date_1]).find_date_2(params[:date_2]).find_name(params[:name]).order(created_at: :desc).page(params[:page]).per(10)
   	end
@@ -88,5 +92,13 @@ class ReportsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
       params.require(:report).permit(:entry_date, :user_id, :report)
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
+    
+    def sort_column
+      User.column_names.include?(params[:sort]) ? params[:sort] : "entry_date"
     end
 end
