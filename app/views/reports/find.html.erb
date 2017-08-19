@@ -38,7 +38,7 @@
         <td><%= report.entry_date %></td>
         <td><%= report.user_id %></td>
         <td><%= link_to report.user.name, user_path(report.user.id) %></td>
-        <td><%= report.report %></td>
+        <td><%= report.report.truncate(10) %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to 'Edit', edit_report_path(report) %></td>
         <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -49,4 +49,5 @@
 
 <br>
 <%= paginate @reports %>
-<%= link_to 'New Report', new_report_path %>
+<%= link_to 'New Report', new_report_path %> |
+<%= link_to 'New User', new_user_path %>

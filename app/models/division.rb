@@ -1,5 +1,5 @@
 class Division < ApplicationRecord
-    has_many :user
+    has_one :user
     
     
     validates :no, uniqueness: true

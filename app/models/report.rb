@@ -8,8 +8,11 @@ class Report < ApplicationRecord
     scope :find_date_2, ->(date_2) {
         where("entry_date <= ?", date_2) if date_2.present?
     }
-    scope :find_name, ->(name) {
-        where("user_id == ?", name) if name.present?
+    # scope :find_name, ->(name) {
+    #     where("user_id == ?", name) if name.present?
+    # }
+        scope :find_name, ->(name) {
+        joins(:user).where("users.name like ?", '%' + name + '%') if name.present?
     }
     
 end

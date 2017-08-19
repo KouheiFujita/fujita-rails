@@ -80,6 +80,11 @@ class ReportsController < ApplicationController
     @reports = Report.all.order(sort_column + ' ' + sort_direction).page(params[:page]).per(10)
   	if request.post? then
       @reports = Report.find_date_1(params[:date_1]).find_date_2(params[:date_2]).find_name(params[:name]).order(created_at: :desc).page(params[:page]).per(10)
+      
+      # @reports = Report.find_date_1(params[:date_1]).find_date_2(params[:date_2]).find_name(params[:name]).joins(:user_id).select("reports.*").order(created_at: :desc).page(params[:page]).per(10)
+      # @reports = User.find_name(params[:name]).joins(:user_id).select("reports.*")
+      
+  
   	end
   end
   

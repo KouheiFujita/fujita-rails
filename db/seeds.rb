@@ -21,6 +21,6 @@
 # (10..31).each do |number|
 #   User.create(no: number, name: 'user ' + number.to_s, kana: 'user ' + number.to_s, memo: 'memo ' + number.to_s, division_id: number )
 # end
-(1..9).each do |number|
-  Report.create(entry_date: '2017-01-0' + number.to_s, user_id: 1, report: 'test report' )
-end
+# (10..31).each do |number|
+#   Report.create(entry_date: '2017-08-' + number.to_s, user_id: number, report: 'report ' + number.to_s )
+# end
