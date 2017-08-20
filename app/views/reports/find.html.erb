@@ -2,24 +2,26 @@
 
 <h1>Find Report</h1>
 
+
+<%= form_tag(controller: "reports", action: "find" ) do %>
 <table>
-	<%= form_tag(controller: "reports", action: "find" ) do %>
-	<tr><th>DATE</th>
-		<td>
-		  <%= text_field_tag("date_1", Date.today-3 ) %>
-		  <%= text_field_tag("date_2", Date.today ) %>
-	  </td>
-	</tr>
-	<tr><th>USER</th>
-		<td>
-		  <%= text_field_tag("name", '' ) %>
-	  </td>
-  </tr>
-	<tr><th></th>
-		<td><%= submit_tag("Click") %></td></tr>
-	</tr>
-	<% end %>
+<tr><th>DATE</th>
+	<td>
+	  <%= text_field_tag("date_1", Date.today-3 ) %>
+	  <%= text_field_tag("date_2", Date.today ) %>
+  </td>
+</tr>
+<tr><th>USER</th>
+	<td>
+	  <%= text_field_tag("name", '' ) %>
+  </td>
+</tr>
+<tr><th></th>
+	<td><%= submit_tag("Click") %></td></tr>
+</tr>
 </table>
+<% end %>
+
 
 <table>
   <thead>
@@ -37,7 +39,7 @@
       <tr>
         <td><%= report.entry_date %></td>
         <td><%= report.user_id %></td>
-        <td><%= link_to report.user.name, user_path(report.user.id) %></td>
+        <td><%= link_to report.user.name.truncate(10), user_path(report.user.id) %></td>
         <td><%= report.report.truncate(10) %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to 'Edit', edit_report_path(report) %></td>
@@ -46,8 +48,7 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-<%= paginate @reports %>
 <%= link_to 'New Report', new_report_path %> |
 <%= link_to 'New User', new_user_path %>
+<br><br>
+<%= paginate @reports %>
